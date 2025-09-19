@@ -43,7 +43,8 @@ pip install -r requirements.txt
 
 # 2. Download SAM ViT-L weights
 mkdir -p weights
-wget <official_sam_vit_l_url> -O weights/sam_vit_l_0b3195.pth
+wget https://dl.fbaipublicfiles.com/segment_anything/sam_vit_l_0b3195.pth \
+     -O weights/sam_vit_l_0b3195.pth
 
 # 3. Single-GPU fine-tuning and evaluation
 python train.py
@@ -51,19 +52,6 @@ python eval.py
 ```
 - Training artefacts: `logs/<dataset_name>/best_model.pth`, `best_model_lora.safetensors`, `best_model_metrics.log`.
 - Evaluation results: `logs/<dataset_name>/eval_outputs/{original,pred_mask,overlay_gt}/` and `metrics.json`.
-
-## 🧪 Reproducibility
-- Deterministic setup: `set_seed(42)`, LoRA rank = 1, batch size = 1.
-- Optimisation: 100 epochs, AdamW lr = 1e-4, 3-epoch linear warmup, cosine decay to 1% of the initial lr.
-- Expected CTS-Pore results: IoU ≈ 84.4 ± 0.5, F1 ≈ 91.5 ± 0.3. Significant deviations often indicate prompt issues or data misalignment.
-- Logs and metrics are recorded under `logs/<dataset_name>/`.
-
-## 🧱 Model Zoo (TBD)
-| Dataset | Config | Weights | Notes |
-| --- | --- | --- | --- |
-| CTS-Pore | rank=1, dilations {1,2,3} | _TBD_ | LoRA + head package |
-| Beijing Urban Village | same | _TBD_ | Evaluation logs + visualisations |
-| Xi’an Urban Village | same | _TBD_ | Evaluation logs + visualisations |
 
 ## 📊 Results
 | Method | IoU (%) | F1 (%) | Params (M) |
@@ -79,25 +67,14 @@ python eval.py
 
 Reproduce by running `python eval.py` and inspecting `logs/<dataset_name>/eval_outputs/` for overlays and masks.
 
-## 🧩 Ablations & Limitations
-- Ablation (CTS-Pore) shows removing box prompts (-7.1 IoU), point prompts (-5.1 IoU), LoRA (-38.5 IoU), or SAM’s decoder (-4.1 IoU) degrades performance.
-- Prompt supervision and SAM supervision jointly enforce consistency; dropping either reduces F1/IoU notably.
-- Current repo targets SAM ViT-L and single-class segmentation; multi-class or larger-batch setups require additional tuning.
-
 ## ✍️ Citation
 ```bibtex
-@inproceedings{li2024psam,
-  title     = {P-SAM: Parallel Semantic Decoding of SAM for Domain-Driven Prompt Generation in Pore Segmentation},
-  author    = {Li, Dongsheng and Zhang, Huijie and Xia, Qiushi},
-  booktitle = {TBD},
-  year      = {2024},
-  note      = {Update with the final venue / DOI / arXiv identifier when available}
-}
+
 ```
 
 ## 📄 License
-MIT License (see `LICENSE` or add the file before releasing if not yet included).
 
 ## 🙏 Acknowledgements
-- Segment Anything and SAM2 project teams for the foundational models and dataset preparation.
-- LoRA community for the open implementations that inspired the parameter-efficient adaptation.
+- [Segment Anything (SAM)](https://github.com/facebookresearch/segment-anything) project teams for providing the foundational model.
+- [UV-SAM](https://github.com/tsinghua-fib-lab/UV-SAM) from Tsinghua FIB Lab for releasing their SAM adaptation baseline.
+
