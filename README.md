@@ -1,9 +1,9 @@
 # P-SAM: Parallel-Decoding SAM for Domain-Driven Prompting and Robust Pore Segmentation
-[![Python](https://img.shields.io/badge/Python-3.10-3776AB.svg)](<placeholder>) [![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C.svg)](<placeholder>) [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.10-3776AB.svg)](https://www.python.org/) [![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C.svg)](https://pytorch.org/) [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 **Dataset & Weights Availability:** To be released.
 
-[Paper] <placeholder> · [Authors] <placeholder> · [Affiliation] <placeholder>
+[Paper] P-SAM: Parallel Semantic Decoding of SAM for Domain-Driven Prompt Generation in Pore Segmentation (<placeholder>) · [Authors] Dongsheng Li, Huijie Zhang, Qiushi Xia · [Affiliation] School of Information Science and Technology, Northeast Normal University, Changchun, China
 
 ## TL;DR
 P-SAM introduces a parallel prompt decoder that couples sparse prompts with a lightweight segmentation head for pore segmentation and beyond. The framework prioritises parameter-efficient SAM adaptation via LoRA fine-tuning, leverages consistency constraints across prompt and mask predictions, and delivers strong transfer to multi-polarization microscopy and remote sensing regimes. Initial experiments yield promising IoU / F1 on pore datasets and set the stage for cross-domain generalisation to urban-village identification.
@@ -92,10 +92,10 @@ python eval.py           # Deterministic evaluation + exports
 If you use P-SAM or build upon its human-in-the-loop workflows, please cite:
 ```
 @misc{psam2025,
-  title        = {<placeholder>},
-  author       = {<placeholder>},
+  title        = {P-SAM: Parallel Semantic Decoding of SAM for Domain-Driven Prompt Generation in Pore Segmentation},
+  author       = {Li, Dongsheng and Zhang, Huijie and Xia, Qiushi},
   year         = {2025},
-  howpublished = {arXiv:<placeholder>}
+  note         = {Preprint}
 }
 ```
 
