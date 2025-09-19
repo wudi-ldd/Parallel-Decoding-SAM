@@ -1,7 +1,6 @@
 # P-SAM: Parallel Semantic Decoding of SAM for Domain-Driven Prompt Generation in Pore Segmentation
 > Parameter-efficient prompting for SAM with only 0.16M tunable weights, delivering cross-domain pore segmentation.
 
-![Teaser](assets/teaser.png)
 
 ## 🔹 Highlights
 - Parallel Semantic Decoding (P-SAM) unifies prompt generation and mask prediction inside SAM’s pipeline.
@@ -35,7 +34,6 @@ datasets/
 ```
 - `<split>.txt` files enumerate file names (with extension) relative to the `images/` folder, one per line.
 - Masks share the same file names and reside in `masks/`.
-- For dry runs, create a placeholder dataset with synthetic images and masks before training.
 
 ## 🚀 Quick Start
 ```bash
