@@ -1,5 +1,5 @@
 # P-SAM: Parallel Semantic Decoding of SAM for Domain-Driven Prompt Generation in Pore Segmentation
-> Parameter-efficient prompting for SAM with only 0.16M tunable weights, delivering cross-domain pore segmentation.
+> Parameter-efficient prompting for SAM with only 0.16M tunable weights, delivering pore segmentation.
 
 
 ## 🔹 Highlights
