@@ -72,8 +72,6 @@ Reproduce by running `python eval.py` and inspecting `logs/<dataset_name>/eval_o
 
 ```
 
-## 📄 License
-
 ## 🙏 Acknowledgements
 - [Segment Anything (SAM)](https://github.com/facebookresearch/segment-anything) project teams for providing the foundational model.
 - [UV-SAM](https://github.com/tsinghua-fib-lab/UV-SAM) from Tsinghua FIB Lab for releasing their SAM adaptation baseline.
